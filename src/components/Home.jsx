@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'; // ✅ useEffect ထည့်ပြီ
+import React, { useEffect } from 'react'; 
 
 const Home = () => {
   useEffect(() => {
@@ -37,7 +37,7 @@ const Home = () => {
       mentorScroll.addEventListener('scroll', updateArrowVisibility);
       updateArrowVisibility();
     }
-  }, []); // ✅ Empty dependency array
+  }, []); // Empty dependency array
 
   return (
     <div className="bg-gradient-to-br from-gray-50 via-white to-purple-50/30 min-h-screen font-poppins">
