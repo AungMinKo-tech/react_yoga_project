@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // 👈 import Link
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // for mobile menu icons
 
 const NavigationBar = () => {
@@ -61,11 +61,11 @@ const NavigationBar = () => {
           </li>
           <li>
             <Link
-              to="/blog"
+              to="/admin"
               className="hover:text-green-600 transition-colors"
               onClick={closeMenu}
             >
-              Blog
+              Admin
             </Link>
           </li>
           <li>

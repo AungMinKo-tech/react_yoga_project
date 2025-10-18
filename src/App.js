@@ -5,44 +5,24 @@ import './index.css';
 
 import Home from './pages/Home.jsx';
 import AboutUs from './pages/AboutUs.jsx';
-import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-// import Footer from '';
-// import Program from '';
-// import ContactUs from '';
-// import Login from '';
-// import Register from '';
-
-// // User Pages
-// import UserDashboard from './#';
-// import UserProfile from './#';
-// import UserRegisterfrom './#r';
-
-// // Admin Pages
-// import AdminDashboard from '#';
-// import UserManagement from '#';
-// import AdminSettings from '#';
-
-// // Simple auth check (real app >> backend >> check )
-// const isAuthenticated = true;
-// const isAdmin = true;
+import Admin from './pages/admin/Admin.jsx';
+import MainLayout from './layouts/MainLayout.jsx';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar /> { }
-        <Routes>
+      <Routes>
+        {/* Routes with the main Navbar and Footer */}
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+        </Route>
 
-
-        </Routes>
-        <Footer /> { }
-      </div>
+        {/* Admin route with its own layout */}
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
     </Router>
   );
 }
 
 export default App;
-
