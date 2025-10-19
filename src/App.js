@@ -1,13 +1,14 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './index.css';   
+import './index.css';
 
-import Home from './pages/Home.jsx';        
-import AboutUs from './pages/AboutUs.jsx';  
+import Home from './pages/Home.jsx';
+import AboutUs from './pages/AboutUs.jsx';
 import Navbar from './components/Navbar.jsx';
 import OurProgram from './pages/OurProgram.jsx';
-import Service from './pages/Service.jsx'; 
+import Service from './pages/Service.jsx';
+import Blog from './pages/Blog.jsx';
 // import Footer from '';
 // import Program from '';
 // import ContactUs from '';
@@ -32,13 +33,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar /> {}
+        <Navbar /> { }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/programs" element={<OurProgram />} />
           <Route path="/services" element={<Service />} />
-          
+          <Route path="/blog" element={<Blog />} />
+
 
         </Routes>
       </div>
