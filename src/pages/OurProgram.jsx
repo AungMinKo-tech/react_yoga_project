@@ -73,7 +73,7 @@ const OurProgram = () => {
               </div>
             </div>
             <div className="lg:w-3/5 w-full min-h-[50vh] lg:min-h-screen">
-              <img 
+              <img
                 className="w-full h-full object-cover rounded-bl-[40px] lg:rounded-bl-[60px] rounded-tr-[20px] lg:rounded-tr-none"
                 src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
                 alt="Wellness Programs"
@@ -146,9 +146,8 @@ const OurProgram = () => {
             ].map((service) => (
               <div
                 key={service.id}
-                className={`service-item rounded-lg border border-gray-200 p-6 cursor-pointer transition-all ${
-                  activeService === service.id ? 'bg-green-500 text-white shadow-lg' : 'hover:bg-green-100'
-                }`}
+                className={`service-item rounded-lg border border-gray-200 p-6 cursor-pointer transition-all ${activeService === service.id ? 'bg-green-500 text-white shadow-lg' : 'hover:bg-green-100'
+                  }`}
                 onClick={() => showContent(service.id)}
               >
                 <h3 className="mb-2 text-xl font-bold">{service.title}</h3>
@@ -161,9 +160,9 @@ const OurProgram = () => {
         {/* Service Content + Image */}
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           <div className="lg:w-2/5 flex justify-center">
-            <img 
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-              alt="Healing Services" 
+            <img
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Healing Services"
               className="w-full max-w-md rounded-2xl shadow-lg"
             />
           </div>
@@ -219,7 +218,7 @@ const OurProgram = () => {
         </div>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl leading-relaxed mb-8">
-            Receive divine clarity with monthly Oracle & Tarot readings on YouTube. 
+            Receive divine clarity with monthly Oracle & Tarot readings on YouTube.
             Book private 1-on-1 consultations via email or Telegram.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -251,7 +250,7 @@ const OurProgram = () => {
             { title: 'DIAMOND 1Y', price: 888, emoji: '⚡', features: ['24/7 Support', 'Cancel Anytime', 'Weekly Check-in'] },
             { title: 'PREMIUM 6M', price: 111, emoji: '⭐', features: ['1-on-1 Coaching', 'Meal Plans', 'Energy Healing'], popular: true }
           ].map((plan, index) => (
-            <div key={index} className={`comparison-card rounded-3xl border-l-4  bg-white p-6 relative hover:shadow-xl transition-all ${plan.popular ? '' : ''}`}>
+            <div key={index} className={`comparison-card rounded-3xl border-l-1 border-green-500 bg-white p-6 relative hover:shadow-xl transition-all ${plan.popular ? 'ring-2 ring-green-500 shadow-2xl' : ''}`}>
               {plan.popular && <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">MOST POPULAR</div>}
               <div className="mb-6 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-2xl">
@@ -285,13 +284,13 @@ const OurProgram = () => {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center text-green-800 mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-3 h-3 bg-green-800 rounded-full mr-4"></div>
-            <p className="text-xl font-medium">TESTIMONIALS</p>
-            <div className="w-3 h-3 bg-green-800 rounded-full ml-4"></div>
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-3 h-3 bg-green-800 rounded-full mr-4"></div>
+              <p className="text-xl font-medium">TESTIMONIALS</p>
+              <div className="w-3 h-3 bg-green-800 rounded-full ml-4"></div>
+            </div>
+            <h2 className="font-jost text-6xl mb-12">OUR CUSTOMER SAY</h2>
           </div>
-          <h2 className="font-jost text-6xl mb-12">OUR CUSTOMER SAY</h2>
-        </div>
 
           <div className="relative max-w-4xl mx-auto">
             {/* Arrows */}
