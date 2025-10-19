@@ -15,7 +15,7 @@ import Footer from './components/Footer.jsx';
 
 // // User Pages
 // import UserDashboard from './#';
-// import UserProfile from './#';
+import UserProfile from './pages/UserProfile.jsx';
 // import UserRegisterfrom './#r';
 
 // // Admin Pages
@@ -35,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/profile" element={<UserProfile />} />
 
 
         </Routes>
