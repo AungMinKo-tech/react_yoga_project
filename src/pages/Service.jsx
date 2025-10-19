@@ -1,4 +1,4 @@
-// src/components/Service.jsx
+
 import React from 'react';
 
 const Service = () => {
