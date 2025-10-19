@@ -55,7 +55,7 @@ const OurProgram = () => {
   ];
 
   return (
-    <div className="bg-white font-sans font-poppins">
+    <div className="bg-white  font-poppins">
       {/* 1️⃣ HERO PROGRAMS SECTION */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <div className="w-full relative z-10">
