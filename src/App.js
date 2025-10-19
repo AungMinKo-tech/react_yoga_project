@@ -6,6 +6,8 @@ import './index.css';
 import Home from './components/Home.jsx';        
 import AboutUs from './components/AboutUs.jsx';  
 import Navbar from './components/Navbar.jsx';
+import OurProgram from './components/OurProgram.jsx';
+import Service from './components/Service.jsx'; 
 // import Footer from '';
 // import Program from '';
 // import ContactUs from '';
@@ -34,6 +36,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/programs" element={<OurProgram />} />
+          <Route path="/services" element={<Service />} />
           
 
         </Routes>
