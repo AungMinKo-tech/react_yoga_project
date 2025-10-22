@@ -7,6 +7,14 @@ import Home from './pages/Home.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+
+import AccountTemplate from "./pages/AccountCreation/AccountTemplate.jsx";
+import Login from "./pages/AccountCreation/Login.jsx";
+import MainLayout from "./layouts/MainLayout.jsx";
+import Register from "./pages/AccountCreation/Register.jsx";
+import CreateNewPassword from "./pages/AccountCreation/CreateNewPassword.jsx";
+import ForgotPassword from "./pages/AccountCreation/ForgotPassword.jsx";
+import OTPVerificcation from "./pages/AccountCreation/OTPVerificcation.jsx";
 // import Footer from '';
 // import Program from '';
 // import ContactUs from '';
@@ -30,16 +38,21 @@ import Footer from './components/Footer.jsx';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar /> { }
-        <Routes>
+      <Routes>
+        {/* Routes with the main Navbar and Footer */}
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-
-
-        </Routes>
-        <Footer /> { }
-      </div>
+        </Route>
+        {/* Routes for Account Creation */}
+        <Route path="" element={<AccountTemplate />}>
+          <Route path="/signin" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/verify-otp" element={<OTPVerificcation />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/create-new-password" element={<CreateNewPassword />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
