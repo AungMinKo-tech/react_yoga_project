@@ -16,6 +16,7 @@ import Footer from './components/Footer.jsx';
 // // User Pages
 // import UserDashboard from './#';
 import UserProfile from './pages/UserProfile.jsx';
+import ChangePassword from './pages/ChangePassword.jsx';
 // import UserRegisterfrom './#r';
 
 // // Admin Pages
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/change-password" element={<ChangePassword />} />
 
 
         </Routes>
