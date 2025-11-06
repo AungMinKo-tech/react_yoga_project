@@ -28,7 +28,7 @@ const Sidebar = () => {
     { name: "Event", path: "/admin/event", icon: <Calendar size={20} /> },
     { name: "Card Reading", path: "/admin/card", icon: <BookOpen size={20} /> },
     { name: "Food", path: "/admin/food", icon: <Utensils size={20} /> },
-    { name: "Settings", path: "/admin/settings", icon: <Settings size={20} /> },
+    { name: "Admin", path: "/admin/settings", icon: <Settings size={20} /> },
     {
       name: "Trainers Videos",
       path: "/admin/videos",

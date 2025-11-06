@@ -13,7 +13,9 @@ import AdminLayout from "./layouts/AdminLayout.jsx";
 // Admin pages
 import Dashboard from "./pages/admin/Dashboard.jsx";
 import Members from "./pages/admin/Members.jsx";
-// import Trainers from "./pages/admin/Trainers.jsx";
+import Trainers from "./pages/admin/Trainers.jsx";
+import AddNewMember from "./pages/admin/Trainers.jsx";
+import AddNewTrainer from "./pages/admin/AddNewTrainer.jsx";
 // import Event from "./pages/admin/Event.jsx";
 // import CardReading from "./pages/admin/CardReading.jsx";
 // import Food from "./pages/admin/Food.jsx";
@@ -34,12 +36,12 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="members" element={<Members />} />
-          {/* <Route path="trainers" element={<Trainers />} />
-          <Route path="event" element={<Event />} />
-          <Route path="card" element={<CardReading />} />
-          <Route path="food" element={<Food />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="videos" element={<Videos />} /> */}
+           <Route path="trainers" element={<AddNewTrainer />} /> 
+           {/* <Route path="event" element={<Event />} />  */}
+          {/* <Route path="card" element={<CardReading />} /> */}
+          {/* <Route path="food" element={<Food />} /> */}
+          <Route path="settings" element={<AddNewMember />} />
+          {/* <Route path="videos" element={<Videos />} />  */}
         </Route>
       </Routes>
     </Router>
