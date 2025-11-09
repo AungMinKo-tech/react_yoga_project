@@ -38,7 +38,6 @@ import AddNewTrainer from "./pages/admin/AddNewTrainer.jsx";
 // // User Pages
 // import UserDashboard from './#';
 import UserProfile from "./pages/UserProfile.jsx";
-import ChangePassword from "./pages/ChangePassword.jsx";
 // import UserRegisterfrom './#r';
 
 // // Admin Pages
