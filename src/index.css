@@ -73,6 +73,20 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* RGB channels */
+    --color-destructive-rgb: 255 69 80; /* approx tomato */
+  --color-destructive-foreground-rgb: 255 255 255;
+  --color-muted-rgb: 245 245 245;
+  --color-muted-foreground-rgb: 107 114 128;
+  --color-input-rgb: 229 231 235;
+  --color-ring-rgb: 253 242 233;
+  --color-border-rgb: 229 231 235;
+  --color-background-rgb: 255 255 255;
+  --color-foreground-rgb: 17 24 39;
+  --color-primary-rgb: 29 52 8; /* #1D3408 */
+  --color-primary-foreground-rgb: 255 255 255;
+  --color-accent-rgb: 16 185 129; /* #10B981 */
+  --color-accent-foreground-rgb: 255 255 255;
 }
  
 .dark {
