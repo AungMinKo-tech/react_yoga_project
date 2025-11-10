@@ -10,12 +10,13 @@ module.exports = {
       },
       colors: {
         primary: "#1D3408",
-        "primary-dark": "#7C3AED",
+        primary_dark: "#7C3AED",
         secondary: "#FB7D5B",
         accent: "#10B981",
         tertiary: "#FCC43E",
         quatinery: "#4D7E20",
         danger: "#FF4550",
+        admin_text_color: "#303972",
         // shad cn colors
         destructive: "rgb(var(--color-destructive-rgb) / <alpha-value>)",
         "destructive-foreground":

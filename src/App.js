@@ -30,6 +30,9 @@ import Members from "./pages/admin/Members.jsx";
 import Trainers from "./pages/admin/Trainers.jsx";
 import AddNewMember from "./pages/admin/Trainers.jsx";
 import AddNewTrainer from "./pages/admin/AddNewTrainer.jsx";
+import CreateDetoxFood from "./pages/admin/detox-food/CreateDetoxFood.jsx";
+import ViewDetoxFood from "./pages/admin/detox-food/ViewDetoxFood.jsx";
+import ListDetoxFood from "./pages/admin/detox-food/ListDetoxFood.jsx";
 // import Event from "./pages/admin/Event.jsx";
 // import CardReading from "./pages/admin/CardReading.jsx";
 // import Food from "./pages/admin/Food.jsx";
@@ -66,10 +69,16 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="members" element={<Members />} />
           <Route path="trainers" element={<AddNewTrainer />} />
+          <Route path="settings" element={<AddNewMember />} />
+
           {/* <Route path="event" element={<Event />} />  */}
           {/* <Route path="card" element={<CardReading />} /> */}
           {/* <Route path="food" element={<Food />} /> */}
-          <Route path="settings" element={<AddNewMember />} />
+          <Route path="detox-food" > 
+            <Route path="create" element={<CreateDetoxFood />} />
+            <Route path="view/:item_id" element={<ViewDetoxFood />} />
+            <Route path=":user_id/lists" element={<ListDetoxFood />} />
+          </Route>
           {/* <Route path="videos" element={<Videos />} />  */}
         </Route>
         {/* Routes for Account Creation */}
