@@ -50,3 +50,17 @@ export const resetPasswordSchema = yup.object().shape({
     .required("Confirm password is required")
     .oneOf([yup.ref("password")], "Passwords do not match"),
 });
+
+
+export const detoxSchema = yup.object({
+  email: yup.string().email("Invalid email").optional(),
+  foodTitle: yup.string().min(2, "Food title is required"),
+  ingredients: yup
+    .array(yup.string())
+    .min(1, "Please add at least one ingredient"),
+  type: yup.string().min(1, "Type is required"),
+  description: yup.string().min(5, "Description is required"),
+  weeklyList: yup.string().optional(),
+  nutrition: yup.array(yup.string()).optional(),
+  photo: yup.mixed().optional(),
+});

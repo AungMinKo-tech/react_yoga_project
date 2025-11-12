@@ -33,6 +33,9 @@ import Members from "./pages/admin/Members.jsx";
 // import Trainers from "./pages/admin/Trainers.jsx";
 import AddNewMember from "./pages/admin/Trainers.jsx";
 import AddNewTrainer from "./pages/admin/AddNewTrainer.jsx";
+import CreateDetoxFood from "./pages/admin/detox-food/CreateDetoxFood.jsx";
+import ViewDetoxFood from "./pages/admin/detox-food/ViewDetoxFood.jsx";
+import ListDetoxFood from "./pages/admin/detox-food/ListDetoxFood.jsx";
 import TrainersList from "./pages/admin/TrainersList.jsx";
 import TrainerDetail from "./pages/admin/TrainerDetail.jsx";
 import VideoUpload from "./pages/admin/VideoUpload.jsx";
@@ -76,6 +79,8 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="members" element={<Members />} />
           <Route path="trainers" element={<AddNewTrainer />} />
+          <Route path="settings" element={<AddNewMember />} />
+
           <Route path="event" element={<TrainersList />} />
           <Route path="trainers/:id" element={<TrainerDetail />} />
           <Route path="trainers/:id/videos" element={<TrainerVideos />} />
@@ -84,7 +89,11 @@ function App() {
           <Route path="payments" element={<AdminPaymentList />} />
           {/* <Route path="card" element={<CardReading />} /> */}
           {/* <Route path="food" element={<Food />} /> */}
-          <Route path="settings" element={<AddNewMember />} />
+          <Route path="detox-food" > 
+            <Route path="create" element={<CreateDetoxFood />} />
+            <Route path="view/:item_id" element={<ViewDetoxFood />} />
+            <Route path=":user_id/lists" element={<ListDetoxFood />} />
+          </Route>
           {/* <Route path="videos" element={<Videos />} />  */}
         </Route>
         {/* Routes for Account Creation */}
