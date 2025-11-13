@@ -10,6 +10,9 @@ import {
   Video,
   Menu,
   X,
+  UserPlus,
+  UserCog,
+  Receipt,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -25,18 +28,36 @@ const Sidebar = () => {
       path: "/admin/trainers",
       icon: <UserCheck size={20} />,
     },
-    { name: "Event", path: "/admin/event", icon: <Calendar size={20} /> },
-    { name: "Card Reading", path: "/admin/card", icon: <BookOpen size={20} /> },
     {
-      name: "Food",
+      name: "Add Member",
+      path: "/admin/members/add",
+      icon: <UserPlus size={20} />,
+    },
+    {
+      name: "Add Trainer",
+      path: "/admin/trainers/add",
+      icon: <UserCog size={20} />,
+    },
+    {
+      name: "Add Trainer Video",
+      path: "/admin/trainers/videos/upload",
+      icon: <Video size={20} />,
+    },
+    {
+      name: "Add Detox Food",
       path: "/admin/detox-food/create",
       icon: <Utensils size={20} />,
     },
-    { name: "Admin", path: "/admin/settings", icon: <Settings size={20} /> },
+
     {
-      name: "Trainers Videos",
-      path: "/admin/videos",
-      icon: <Video size={20} />,
+      name: "Appointments",
+      path: "/admin/appointments",
+      icon: <Calendar size={20} />,
+    },
+    {
+      name: "Payments",
+      path: "/admin/payments",
+      icon: <Receipt size={20} />,
     },
   ];
 

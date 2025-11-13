@@ -3,14 +3,21 @@ import {
   ChevronDown,
   Phone,
   Mail,
-  MoreVertical,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import DropdownMenuDialog from "../../components/DropDownCustom.jsx";
 
 const Members = () => {
   const [selectedMembers, setSelectedMembers] = useState([]);
+
+  // Use a template with :id which will be replaced per-row
+  const dropDownRoutes = [
+    { name: "View Detox Food", to: "/admin/detox-food/:id/lists" },
+    { name: "Edit User Detail", onClick: () => alert("Edit User Detail") },
+  ];
 
   const members = [
     {
@@ -113,10 +120,13 @@ const Members = () => {
             <span>Newest</span>
             <ChevronDown size={16} />
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+          <NavLink
+            to="/admin/members/add"
+            className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
             <span>+</span>
             <span>New Member</span>
-          </button>
+          </NavLink>
         </div>
       </div>
 
@@ -233,9 +243,15 @@ const Members = () => {
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                      <MoreVertical size={18} className="text-gray-600" />
-                    </button>
+                    <DropdownMenuDialog
+                      className="z-10"
+                      items={dropDownRoutes.map((routes) => ({
+                        ...routes,
+                        to: routes.to
+                          ? routes.to.replace(":id", member.id)
+                          : undefined,
+                      }))}
+                    />
                   </td>
                 </tr>
               ))}

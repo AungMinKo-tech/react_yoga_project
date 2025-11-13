@@ -33,14 +33,19 @@ import Blog from "./pages/Blog.jsx";
 // Admin pages
 import Dashboard from "./pages/admin/Dashboard.jsx";
 import Members from "./pages/admin/Members.jsx";
-// import Trainers from "./pages/admin/Trainers.jsx";
 import AddNewMember from "./pages/admin/Trainers.jsx";
-import AddNewTrainer from "./pages/admin/AddNewTrainer.jsx";
+
+//  detox food pages
 import CreateDetoxFood from "./pages/admin/detox-food/CreateDetoxFood.jsx";
 import ViewDetoxFood from "./pages/admin/detox-food/ViewDetoxFood.jsx";
 import ListDetoxFood from "./pages/admin/detox-food/ListDetoxFood.jsx";
-import TrainersList from "./pages/admin/TrainersList.jsx";
-import TrainerDetail from "./pages/admin/TrainerDetail.jsx";
+
+// trainer pages
+import TrainersList from "./pages/admin/trainers/TrainersList.jsx";
+import TrainerDetail from "./pages/admin/trainers/TrainerDetail.jsx";
+import TrainerVideos from "./pages/admin/trainers/TrainerVideos.jsx";
+import AddNewTrainer from "./pages/admin/trainers/AddNewTrainer.jsx";
+
 import VideoUpload from "./pages/admin/VideoUpload.jsx";
 import AppointmentList from "./pages/admin/AppointmentList.jsx";
 import AdminPaymentList from "./pages/admin/AdminPaymentList.jsx";
@@ -51,7 +56,6 @@ import AdminPaymentList from "./pages/admin/AdminPaymentList.jsx";
 // // User Pages
 // import UserDashboard from './#';
 import UserProfile from "./pages/UserProfile.jsx";
-import TrainerVideos from "./pages/admin/TrainerVideos.jsx";
 // import UserRegisterForm './#r';
 
 // // Admin Pages
@@ -83,25 +87,32 @@ function App() {
         {/* Admin routes with sidebar layout */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="members" element={<Members />} />
-          <Route path="trainers" element={<AddNewTrainer />} />
-          <Route path="settings" element={<AddNewMember />} />
-
-          <Route path="event" element={<TrainersList />} />
-          <Route path="trainers/:id" element={<TrainerDetail />} />
-          <Route path="trainers/:id/videos" element={<TrainerVideos />} />
-          <Route path="videos/upload" element={<VideoUpload />} />
           <Route path="appointments" element={<AppointmentList />} />
           <Route path="payments" element={<AdminPaymentList />} />
-          {/* <Route path="card" element={<CardReading />} /> */}
-          {/* <Route path="food" element={<Food />} /> */}
+
+          {/* members routes */}
+          <Route path="members">
+            <Route index element={<Members />} />
+            <Route path="add" element={<AddNewMember />} />
+          </Route>
+
+          {/* trainers routes */}
+          <Route path="trainers">
+            <Route index element={<TrainersList />} />
+            <Route path="add" element={<AddNewTrainer />} />
+            <Route path=":id" element={<TrainerDetail />} />
+            <Route path=":id/videos" element={<TrainerVideos />} />
+            <Route path="videos/upload" element={<VideoUpload />} />
+          </Route>
+
+          {/* detox-food routes */}
           <Route path="detox-food">
             <Route path="create" element={<CreateDetoxFood />} />
             <Route path="view/:item_id" element={<ViewDetoxFood />} />
             <Route path=":user_id/lists" element={<ListDetoxFood />} />
           </Route>
-          {/* <Route path="videos" element={<Videos />} />  */}
         </Route>
+
         {/* Routes for Account Creation */}
         <Route path="" element={<AccountTemplate />}>
           <Route path="/signin" element={<Login />} />

@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, Phone, Mail, MoreVertical } from "lucide-react";
+import DropdownMenuDialog from "../../../components/DropDownCustom.jsx";
 
 const TrainersList = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
-
-  // Sample data - သင့်အနေဖြင့် backend မှ data fetch လုပ်ရမည်
+  const dropDownRoutes = [
+    { name: "View Trainer Videos", to: "/admin/trainers/:id/videos" },
+    {
+      name: "View Trainer Details",
+      to: "/admin/trainers/:id",
+      textColor: "text-red-600",
+    },
+    {
+      name: "Delete Trainer",
+      onClick: () => alert("Delete Trainer"),
+      textColor: "text-red-600",
+    },
+  ];
   const trainers = [
     {
       id: 1,
@@ -151,7 +163,7 @@ const TrainersList = () => {
         </select>
 
         <button
-          onClick={() => navigate("/admin/trainers/new")}
+          onClick={() => navigate("/admin/trainers/add")}
           className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium whitespace-nowrap"
         >
           + New Trainer
@@ -168,15 +180,20 @@ const TrainersList = () => {
           >
             {/* Card Header with Menu */}
             <div className="relative">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  // Handle menu options
-                }}
-                className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-gray-100"
+              <div
+                className="absolute top-3 right-3"
+                onClick={(e) => e.stopPropagation()}
               >
-                <MoreVertical className="w-4 h-4 text-gray-600" />
-              </button>
+                <DropdownMenuDialog
+                  className="z-10"
+                  items={dropDownRoutes.map((routes) => ({
+                    ...routes,
+                    to: routes.to
+                      ? routes.to.replace(":id", trainer.id)
+                      : undefined,
+                  }))}
+                />
+              </div>
             </div>
 
             {/* Profile Image */}

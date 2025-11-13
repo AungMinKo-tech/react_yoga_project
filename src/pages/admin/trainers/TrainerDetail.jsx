@@ -11,12 +11,14 @@ import {
   Play,
   ArrowLeft,
 } from "lucide-react";
+import DropdownMenuDialog from "../../../components/DropDownCustom.jsx";
 
 const TrainerDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
-  // Sample data - သင့်အနေဖြင့် backend မှ data fetch လုပ်ရမည်
+  const dropDownRoutes = [
+    { name: "View Trainer Videos", to: "/admin/trainers/:id/videos" },
+  ];
   const trainer = {
     id: 1,
     name: "Billi",
@@ -105,9 +107,20 @@ const TrainerDetail = () => {
           <div className="bg-white rounded-xl shadow-sm overflow-hidden">
             {/* Profile Header with Cover */}
             <div className="relative h-40 bg-gradient-to-r from-green-600 via-yellow-500 to-orange-500">
-              <button className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
+              <div className="absolute top-4 right-6 text-white text-2xl font-bold">
+                <DropdownMenuDialog
+                  className="z-10"
+                  items={dropDownRoutes.map((routes) => ({
+                    ...routes,
+                    to: routes.to
+                      ? routes.to.replace(":id", trainer.id)
+                      : undefined,
+                  }))}
+                />
+              </div>
+              {/* <button className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
                 <MoreVertical className="w-5 h-5 text-gray-600" />
-              </button>
+              </button> */}
             </div>
 
             {/* Profile Picture */}
