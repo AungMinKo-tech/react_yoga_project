@@ -27,16 +27,22 @@ const NavigationBar = () => {
       }`}
     >
       {/* Left: Logo */}
-      <div className="ml-4 md:ml-8 lg:ml-32 flex items-center space-x-2">
-        <img
-          src="assets/logo1.png"
-          alt="Logo"
-          className="h-16 w-16 md:h-20 md:w-20"
-        />
+      <div className="ml-4 md:ml-8 lg:ml-32 flex items-center space-x-2 ">
+        <NavLink to="/">
+          <img
+            src="assets/logo1.png"
+            alt="Logo"
+            className="h-16 w-16 md:h-20 md:w-20 mt-4 "
+          />
+        </NavLink>
       </div>
 
       {/* Desktop Navigation */}
-      <div className="mr-4 md:mr-8 lg:mr-16 hidden md:flex items-center space-x-8 bg-white shadow-sm rounded-full border border-gray-200 px-4 md:px-6 py-2 md:py-3">
+      <div
+        className={`mr-4 md:mr-8 lg:mr-16 hidden md:flex items-center space-x-8 bg-white px-4 md:px-6 py-2 md:py-3 ${
+          isScrolled ? "" : "shadow-sm rounded-full border border-gray-200 "
+        }`}
+      >
         <ul className="hidden md:flex space-x-4 lg:space-x-8 text-gray-600 font-medium">
           <li>
             <NavLink

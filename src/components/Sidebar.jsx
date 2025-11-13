@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Home,
   Users,
@@ -88,11 +88,13 @@ const Sidebar = () => {
       >
         <div>
           <div className="p-6 text-center border-b border-green-700">
-            <img
-              src="/assets/logo1.png"
-              alt="Logo"
-              className="mx-auto mb-2 h-16 w-16"
-            />
+            <NavLink to="/">
+              <img
+                src="/assets/logo1.png"
+                alt="Logo"
+                className="mx-auto mb-2 h-16 w-16"
+              />
+            </NavLink>
             <h3 className="text-lg font-semibold text-white">
               Unlock Wealth Resort
             </h3>

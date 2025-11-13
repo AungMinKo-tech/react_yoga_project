@@ -15,6 +15,7 @@ import AdminLayout from "./layouts/AdminLayout.jsx";
 import AdminTabLayout from "./layouts/AdminTabLayout.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 import AccountTemplate from "./pages/AccountCreation/AccountTemplate.jsx";
 import Login from "./pages/AccountCreation/Login.jsx";
@@ -71,6 +72,7 @@ import UserProfile from "./pages/UserProfile.jsx";
 function App() {
   return (
     <Router>
+      <ScrollToTop behavior="smooth" />
       <Routes>
         {/* Public routes with main layout (Navbar and Footer) */}
         {/* Routes with the main Navbar and Footer */}
