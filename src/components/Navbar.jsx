@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // for mobile menu icons
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isActive, setIsActive] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
@@ -14,157 +14,272 @@ const NavigationBar = () => {
       if (window.scrollY > 10) setIsScrolled(true);
       else setIsScrolled(false);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 flex justify-between items-center h-20 transition-all ${isScrolled ? 'bg-white shadow-md border-b border-gray-200' : 'bg-transparent'}`}
+    <nav
+      className={`fixed top-0 w-full z-50 flex justify-between items-center h-20 transition-all ${
+        isScrolled
+          ? "bg-white shadow-md border-b border-gray-200"
+          : "bg-transparent"
+      }`}
     >
       {/* Left: Logo */}
-      <div className="ml-32 flex items-center space-x-2">
+      <div className="ml-4 md:ml-8 lg:ml-32 flex items-center space-x-2">
         <img
           src="assets/logo1.png"
           alt="Logo"
-          className="h-20 w-20"
+          className="h-16 w-16 md:h-20 md:w-20"
         />
       </div>
 
-      <div className="mr-16 hidden md:flex items-center space-x-8 bg-white shadow-sm rounded-full border border-gray-200 px-6 py-3">
-        <ul className="hidden md:flex space-x-8 text-gray-600 font-medium">
+      {/* Desktop Navigation */}
+      <div className="mr-4 md:mr-8 lg:mr-16 hidden md:flex items-center space-x-8 bg-white shadow-sm rounded-full border border-gray-200 px-4 md:px-6 py-2 md:py-3">
+        <ul className="hidden md:flex space-x-4 lg:space-x-8 text-gray-600 font-medium">
           <li>
-            <Link
+            <NavLink
               to="/"
-              className="hover:text-green-600 transition-colors"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
               onClick={closeMenu}
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/about"
-              className="hover:text-green-600 transition-colors"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
               onClick={closeMenu}
             >
               About Us
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/programs"
-              className="hover:text-green-600 transition-colors"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
               onClick={closeMenu}
             >
               Programs ▾
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Blog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/admin"
-              className="hover:text-green-600 transition-colors"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
               onClick={closeMenu}
             >
               Admin
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/contact"
-              className="hover:text-green-600 transition-colors"
+              className={({ isActive }) =>
+                `transition-colors text-sm lg:text-base ${
+                  isActive
+                    ? "text-green-600 font-semibold"
+                    : "text-gray-600 hover:text-green-600"
+                }`
+              }
               onClick={closeMenu}
             >
               Contact Us
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex space-x-3">
-          <Link
+        <div className="hidden md:flex space-x-2 lg:space-x-3">
+          <NavLink
             to="/register"
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium"
+            className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
           >
             Register
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/signin"
-            className="border border-green-500 text-green-600 hover:bg-green-100 px-4 py-2 rounded-md font-medium"
+            className="border border-green-500 text-green-600 hover:bg-green-100 px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
           >
             Sign in
-          </Link>
+          </NavLink>
         </div>
       </div>
 
       {/* Mobile Menu Button */}
-      <div className="md:hidden flex items-center">
-        <button onClick={toggleMenu}>
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+      <div className="md:hidden flex items-center mr-4">
+        <button onClick={toggleMenu} className="text-gray-600">
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white border-t border-gray-200 rounded-b-2xl shadow-md md:hidden z-1">
+        <div className="absolute top-full left-0 w-full bg-white border-t border-gray-200 rounded-b-2xl shadow-md md:hidden z-50">
           <ul className="flex flex-col items-center space-y-4 py-4 text-gray-600 font-medium">
             <li>
-              <Link to="/" onClick={closeMenu} className="hover:text-green-600">
+              <NavLink
+                to="/"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/about"
                 onClick={closeMenu}
-                className="hover:text-green-600"
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
               >
                 About Us
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/programs"
                 onClick={closeMenu}
-                className="hover:text-green-600"
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
               >
                 Programs
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
+                to="/services"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
+              >
+                Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/blog"
                 onClick={closeMenu}
-                className="hover:text-green-600"
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
               >
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/contact"
                 onClick={closeMenu}
-                className="hover:text-green-600"
+                className={({ isActive }) =>
+                  `text-base ${
+                    isActive
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-600 hover:text-green-600"
+                  }`
+                }
               >
                 Contact Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
 
           <div className="flex flex-col items-center space-y-2 pb-4">
-            <Link
+            <NavLink
               to="/register"
               onClick={closeMenu}
               className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md font-medium w-4/5 text-center"
             >
               Register
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/signin"
               onClick={closeMenu}
               className="border border-green-500 text-green-600 hover:bg-green-100 px-6 py-2 rounded-md font-medium w-4/5 text-center"
             >
               Sign in
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}

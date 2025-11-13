@@ -21,6 +21,9 @@ import Register from "./pages/AccountCreation/Register.jsx";
 import CreateNewPassword from "./pages/AccountCreation/CreateNewPassword.jsx";
 import ForgotPassword from "./pages/AccountCreation/ForgotPassword.jsx";
 import OTPVerificcation from "./pages/AccountCreation/OTPVerificcation.jsx";
+import OurProgram from "./pages/OurProgram.jsx";
+import Service from "./pages/Service.jsx";
+import Blog from "./pages/Blog.jsx";
 // import Footer from '';
 // import Program from '';
 // import ContactUs from '';
@@ -72,6 +75,9 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/payment" element={<UserPaymentForm />} />
+          <Route path="/programs" element={<OurProgram />} />
+          <Route path="/services" element={<Service />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
 
         {/* Admin routes with sidebar layout */}
@@ -89,7 +95,7 @@ function App() {
           <Route path="payments" element={<AdminPaymentList />} />
           {/* <Route path="card" element={<CardReading />} /> */}
           {/* <Route path="food" element={<Food />} /> */}
-          <Route path="detox-food" > 
+          <Route path="detox-food">
             <Route path="create" element={<CreateDetoxFood />} />
             <Route path="view/:item_id" element={<ViewDetoxFood />} />
             <Route path=":user_id/lists" element={<ListDetoxFood />} />

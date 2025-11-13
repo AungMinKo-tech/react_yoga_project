@@ -296,7 +296,7 @@ const Home = () => {
             <button className="absolute top-1 md:top-1 right-4 md:right-6 lg:top-1 lg:right-8 font-bold py-2 px-4 md:py-3 md:px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors text-sm md:text-base">
               -------- JOIN US
             </button>
-            <h1 className="text-green-400 font-jost text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-800 pr-20 md:pr-32 lg:pr-40">
+            <h1 className="text-green-400 font-jost text-2xl md:text-4xl lg:text-5xl xl:text-6xl pr-20 md:pr-32 lg:pr-40">
               THE SIMPLE PRACTICE FOR <br />
               <span className="text-black">BETTER TOMORROW</span>
             </h1>
