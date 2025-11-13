@@ -178,20 +178,10 @@ const AddNewTrainer = () => {
 
   return (
     <div className="max-w-screen mx-auto">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl lg:text-3xl font-bold text-gray-800">
-          Add New Trainer
-        </h1>
-        <div className="text-right">
-          <p className="text-sm text-gray-600">Helen</p>
-          <p className="text-xs text-gray-500">Admin</p>
-        </div>
-      </div>
 
       {/* Personal Details Section */}
       <div className="bg-white rounded-lg shadow-sm mb-6 overflow-hidden">
-        <div className="bg-green-900 text-white px-6 py-4">
+        <div className="bg-admin_bg_color text-white px-6 py-4">
           <h2 className="text-lg font-semibold">Personal Details</h2>
         </div>
 
@@ -387,7 +377,7 @@ const AddNewTrainer = () => {
 
       {/* Education Section */}
       <div className="bg-white rounded-lg shadow-sm mb-6 overflow-hidden">
-        <div className="bg-green-900 text-white px-6 py-4">
+        <div className="bg-admin_bg_color text-white px-6 py-4">
           <h2 className="text-lg font-semibold">Education</h2>
         </div>
 

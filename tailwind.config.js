@@ -17,6 +17,7 @@ module.exports = {
         quatinery: "#4D7E20",
         danger: "#FF4550",
         admin_text_color: "#303972",
+        admin_bg_color: "rgb(22 163 74 / var(--tw-bg-opacity, 1))",
         // shad cn colors
         destructive: "rgb(var(--color-destructive-rgb) / <alpha-value>)",
         "destructive-foreground":

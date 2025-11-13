@@ -22,22 +22,23 @@ const Sidebar = () => {
 
   const menuItems = [
     { name: "Dashboard", path: "/admin", icon: <Home size={20} /> },
-    { name: "Members", path: "/admin/members", icon: <Users size={20} /> },
     {
       name: "Trainers",
       path: "/admin/trainers",
       icon: <UserCheck size={20} />,
+    },
+    { name: "Members", path: "/admin/members", icon: <Users size={20} /> },
+    {
+      name: "Add Trainer",
+      path: "/admin/trainers/add",
+      icon: <UserCog size={20} />,
     },
     {
       name: "Add Member",
       path: "/admin/members/add",
       icon: <UserPlus size={20} />,
     },
-    {
-      name: "Add Trainer",
-      path: "/admin/trainers/add",
-      icon: <UserCog size={20} />,
-    },
+
     {
       name: "Add Trainer Video",
       path: "/admin/trainers/videos/upload",

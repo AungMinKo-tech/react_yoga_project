@@ -185,51 +185,12 @@ const VideoUpload = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      {/* Header */}
-      <div className="mb-6">
-        <button
-          onClick={() => navigate("/admin/trainers/new/videos")}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-4"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span>Back to Videos</span>
-        </button>
-        <h1 className="text-3xl font-bold text-gray-800">Upload Your Video</h1>
-        <p className="text-gray-600 mt-1">
-          Share your training content with members
-        </p>
-      </div>
-
+    <div className=" bg-gray-50 min-h-screen">
       <form onSubmit={handleSubmit}>
-        {/* Tabs */}
-        <div className="flex gap-4 mb-6 border-b border-gray-200">
-          <button
-            type="button"
-            className="px-4 py-2 font-medium text-white bg-green-700 rounded-t-lg"
-          >
-            Add Video
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/admin/members/add")}
-            className="px-4 py-2 font-medium text-gray-600 hover:text-gray-800"
-          >
-            Add Member
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/admin/food/add")}
-            className="px-4 py-2 font-medium text-gray-600 hover:text-gray-800"
-          >
-            Add Food
-          </button>
-        </div>
-
         {/* Main Content */}
         <div className="bg-white rounded-lg shadow-sm">
           {/* Section Header */}
-          <div className="bg-green-700 text-white px-6 py-3 rounded-t-lg">
+          <div className="bg-admin_bg_color text-white px-6 py-3 rounded-t-lg">
             <h2 className="text-lg font-semibold">Details</h2>
           </div>
 

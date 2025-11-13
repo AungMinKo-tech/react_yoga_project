@@ -12,6 +12,7 @@ import UserPaymentForm from "./pages/UserPaymentForm.jsx";
 // Layouts
 import MainLayout from "./layouts/MainLayout.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
+import AdminTabLayout from "./layouts/AdminTabLayout.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -45,8 +46,8 @@ import TrainersList from "./pages/admin/trainers/TrainersList.jsx";
 import TrainerDetail from "./pages/admin/trainers/TrainerDetail.jsx";
 import TrainerVideos from "./pages/admin/trainers/TrainerVideos.jsx";
 import AddNewTrainer from "./pages/admin/trainers/AddNewTrainer.jsx";
+import VideoUpload from "./pages/admin/trainers/VideoUpload.jsx";
 
-import VideoUpload from "./pages/admin/VideoUpload.jsx";
 import AppointmentList from "./pages/admin/AppointmentList.jsx";
 import AdminPaymentList from "./pages/admin/AdminPaymentList.jsx";
 // import CardReading from "./pages/admin/CardReading.jsx";
@@ -93,23 +94,27 @@ function App() {
           {/* members routes */}
           <Route path="members">
             <Route index element={<Members />} />
-            <Route path="add" element={<AddNewMember />} />
           </Route>
 
           {/* trainers routes */}
           <Route path="trainers">
             <Route index element={<TrainersList />} />
-            <Route path="add" element={<AddNewTrainer />} />
             <Route path=":id" element={<TrainerDetail />} />
             <Route path=":id/videos" element={<TrainerVideos />} />
-            <Route path="videos/upload" element={<VideoUpload />} />
           </Route>
 
           {/* detox-food routes */}
           <Route path="detox-food">
-            <Route path="create" element={<CreateDetoxFood />} />
             <Route path="view/:item_id" element={<ViewDetoxFood />} />
             <Route path=":user_id/lists" element={<ListDetoxFood />} />
+          </Route>
+
+          {/* Tabbed admin add routes (use AdminTabLayout) */}
+          <Route element={<AdminTabLayout />}>
+            <Route path="trainers/videos/upload" element={<VideoUpload />} />
+            <Route path="trainers/add" element={<AddNewTrainer />} />
+            <Route path="members/add" element={<AddNewMember />} />
+            <Route path="detox-food/create" element={<CreateDetoxFood />} />
           </Route>
         </Route>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Upload } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const AddNewMember = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const AddNewMember = () => {
     address: "",
     specialRequest: "",
   });
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
   const [photoPreview, setPhotoPreview] = useState(null);
@@ -147,23 +149,10 @@ const AddNewMember = () => {
 
   return (
     <div>
-      {/* Tabs */}
-      <div className="flex gap-6 mb-6 border-b">
-        <button className="pb-3 px-2 text-gray-600 hover:text-green-900">
-          Add Video
-        </button>
-        <button className="pb-3 px-2 text-green-900 border-b-2 border-green-900 font-medium">
-          Add Member
-        </button>
-        <button className="pb-3 px-2 text-gray-600 hover:text-green-900">
-          Add Food
-        </button>
-      </div>
-
       <form onSubmit={handleSubmit}>
         {/* Member Details */}
         <div className="bg-white rounded-lg shadow-sm mb-6 overflow-hidden">
-          <div className="bg-green-900 text-white px-6 py-4">
+          <div className="bg-admin_bg_color text-white px-6 py-4">
             <h2 className="text-lg font-semibold">Member Details</h2>
           </div>
 
@@ -419,7 +408,7 @@ const AddNewMember = () => {
 
         {/* Medical Details */}
         <div className="bg-white rounded-lg shadow-sm mb-6 overflow-hidden">
-          <div className="bg-green-900 text-white px-6 py-4">
+          <div className="bg-admin_bg_color text-white px-6 py-4">
             <h2 className="text-lg font-semibold">Medical Details</h2>
           </div>
 

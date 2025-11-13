@@ -72,23 +72,12 @@ const CreateDetoxFood = () => {
 
   return (
     <div className="max-w-screen mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl lg:text-3xl font-bold text-admin_text_color">
-          Detox Food Create
-        </h1>
-        <div className="text-right">
-          <p className="text-sm text-gray-600">Helen</p>
-          <p className="text-xs text-gray-500">Admin</p>
-        </div>
-      </div>
-
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="bg-admin_bg_color text-white px-6 py-4 rounded-t-lg shadow-sm">
+            <h2 className="text-lg font-semibold">Personal Details</h2>
+          </div>
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-bold text-admin_text_color mb-6">
-              Food Menu
-            </h2>
-
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="col-span-1">
                 <label className="block text-sm font-medium text-quatinery mb-2">
