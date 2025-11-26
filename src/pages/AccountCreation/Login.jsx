@@ -1,5 +1,5 @@
 import { Button } from "../../components/ui/button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
+
+import { useAuth } from "../../context/AuthContext";
 
 import {
   Form,
@@ -25,6 +27,10 @@ import LinkButton from "../../components/LinkButton";
 
 const Login = () => {
   const [isView, setIsView] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const { login } = useAuth();
 
   const form = useForm({
     resolver: yupResolver(loginFormSchema),
@@ -35,8 +41,17 @@ const Login = () => {
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
+  async function onSubmit(values) {
+    try{
+      const response = await login({
+        email: values.email,
+        password: values.password,
+      })
+      if(response.success && response.status === 200)
+        navigate("/");
+    } catch(error){
+      setError(error.response?.data?.message || "Login failed.");
+    }
   }
 
   return (

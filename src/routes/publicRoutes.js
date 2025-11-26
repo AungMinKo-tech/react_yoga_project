@@ -28,6 +28,7 @@ export const publicRoutes = (
         <Route path="/programs" element={<OurProgram />} />
         <Route path="/services" element={<Service />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/logout" element={<Home />} />
     </Route>
 );
 

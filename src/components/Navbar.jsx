@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // for mobile menu icons
 
+import { useAuth } from "../context/AuthContext";
+
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,7 +123,8 @@ const NavigationBar = () => {
               Blog
             </NavLink>
           </li>
-          <li>
+          { isAuthenticated ? 
+          (<li>
             <NavLink
               to="/admin"
               className={({ isActive }) =>
@@ -133,7 +138,10 @@ const NavigationBar = () => {
             >
               Admin
             </NavLink>
-          </li>
+          </li>)
+          :
+          null
+          }
           <li>
             <NavLink
               to="/contact"
@@ -152,20 +160,31 @@ const NavigationBar = () => {
         </ul>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex space-x-2 lg:space-x-3">
-          <NavLink
-            to="/register"
-            className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
-          >
-            Register
-          </NavLink>
-          <NavLink
-            to="/signin"
-            className="border border-green-500 text-green-600 hover:bg-green-100 px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
-          >
-            Sign in
-          </NavLink>
-        </div>
+        {
+          isAuthenticated ?
+           (<div className="hidden md:flex space-x-2 lg:space-x-3">
+            <NavLink
+              to="/logout"
+              className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
+            >
+              Logout
+            </NavLink>
+            </div>) :
+          (<div className="hidden md:flex space-x-2 lg:space-x-3">
+            <NavLink
+              to="/register"
+              className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
+            >
+              Register
+            </NavLink>
+            <NavLink
+              to="/signin"
+              className="border border-green-500 text-green-600 hover:bg-green-100 px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
+            >
+              Sign in
+            </NavLink>
+          </div>)
+        }
       </div>
 
       {/* Mobile Menu Button */}
@@ -271,7 +290,21 @@ const NavigationBar = () => {
             </li>
           </ul>
 
-          <div className="flex flex-col items-center space-y-2 pb-4">
+          {
+            isAuthenticated ? 
+              (
+              <div className="flex flex-col items-center space-y-2 pb-4">
+                <NavLink
+              to="/register"
+              onClick={closeMenu}
+              className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md font-medium w-4/5 text-center"
+            >
+              Logout
+            </NavLink>
+              </div>)
+              :  
+         
+          (<div className="flex flex-col items-center space-y-2 pb-4">
             <NavLink
               to="/register"
               onClick={closeMenu}
@@ -286,7 +319,8 @@ const NavigationBar = () => {
             >
               Sign in
             </NavLink>
-          </div>
+          </div>)
+          }
         </div>
       )}
     </nav>

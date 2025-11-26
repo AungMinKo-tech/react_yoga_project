@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { Navigate } from "react-router-dom";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -15,8 +16,14 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import LinkButton from "../../components/LinkButton";
 
+import { useAuth } from "../../context/AuthContext";
+
 const Register = () => {
   const [isView, setIsView] = useState(false);
+  const [error, setError] = useState("");
+
+  const {register } = useAuth();
+  const navigate = useNavigate();
 
   const form = useForm({
     resolver: yupResolver(signUpFormSchema),
@@ -29,8 +36,24 @@ const Register = () => {
     },
   });
 
-  function onSubmit(values) {
-    console.log("register", values);
+  const onSubmit = async (values) => {
+    //console.log("register", values);
+    
+    setError("");
+
+    try{
+      const result = await register({
+        username: values.username,
+        email: values.email,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+      });
+      if(result.success && result.status === 200)
+      navigate("/signin");
+    
+    } catch(error) {
+      setError(error.response?.data?.message || "Register failed.");
+    }
   }
 
   return (
