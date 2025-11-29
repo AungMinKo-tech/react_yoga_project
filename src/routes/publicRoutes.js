@@ -13,22 +13,54 @@ import OurProgram from "../pages/OurProgram.jsx";
 import Service from "../pages/Service.jsx";
 import Blog from "../pages/Blog.jsx";
 
+
 import UserProfile from "../pages/UserProfile.jsx";
 
 /* Public routes with main layout (Navbar and Footer) */
 /* Routes with the main Navbar and Footer */
 
-export const publicRoutes = (
-    <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/profile" element={<UserProfile />} />
-        <Route path="/book-appointment" element={<BookAppointment />} />
-        <Route path="/payment" element={<UserPaymentForm />} />
-        <Route path="/programs" element={<OurProgram />} />
-        <Route path="/services" element={<Service />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/logout" element={<Home />} />
-    </Route>
-);
+// const withMainLayout = (Component) =>{ 
+//     return (
+//         <MainLayout>
+//             <Component />
+//         </MainLayout>);
+// }
 
+export const publicRoutes = [
+    {
+        path: "/",
+        element: <Home />
+    },
+    {
+        path: "/about",
+        element: <AboutUs />
+    },
+    {
+        path: "/profile",
+        element: <UserProfile />
+    },
+    {
+        path: "/book-appointment",
+        element: <BookAppointment />
+    },
+    {
+        path: "/payment",
+        element: <UserPaymentForm />
+    },
+    {
+        path: "/programs",
+        element: <OurProgram />
+    },
+    {
+        path: "/services",
+        element: <Service />
+    },
+    {
+        path: "/blog",
+        element: <Blog />
+    },
+    {
+        path: "/logout",
+        element: <Home />
+    }
+];

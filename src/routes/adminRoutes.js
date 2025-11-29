@@ -26,38 +26,79 @@ import VideoUpload from "../pages/admin/trainers/VideoUpload.jsx";
 import AppointmentList from "../pages/admin/AppointmentList.jsx";
 import AdminPaymentList from "../pages/admin/AdminPaymentList.jsx";
 
+// const withAdminLayout = (Component) =>{
+//     return(
+//         <AdminLayout>
+//             <Component />
+//         </AdminLayout>
+//         );
+// }
+
+// const withAdminTabLayout = (Component) =>{
+//     return(
+//         <AdminTabLayout>
+//             <Component />
+//         </AdminTabLayout>
+//         );
+// }
+
 {/* Admin routes with sidebar layout */ }
-export const adminRoutes = (
+export const adminRoutes = [
 
-    <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="appointments" element={<AppointmentList />} />
-        <Route path="payments" element={<AdminPaymentList />} />
-
-        {/* members routes */}
-        <Route path="members">
-            <Route index element={<Members />} />
-        </Route>
-
-        {/* trainers routes */}
-        <Route path="trainers">
-            <Route index element={<TrainersList />} />
-            <Route path=":id" element={<TrainerDetail />} />
-            <Route path=":id/videos" element={<TrainerVideos />} />
-        </Route>
-
-        {/* detox-food routes */}
-        <Route path="detox-food">
-            <Route path="view/:item_id" element={<ViewDetoxFood />} />
-            <Route path=":user_id/lists" element={<ListDetoxFood />} />
-        </Route>
-
-        {/* Tabbed admin add routes (use AdminTabLayout) */}
-        <Route element={<AdminTabLayout />}>
-            <Route path="trainers/videos/upload" element={<VideoUpload />} />
-            <Route path="trainers/add" element={<AddNewTrainer />} />
-            <Route path="members/add" element={<AddNewMember />} />
-            <Route path="detox-food/create" element={<CreateDetoxFood />} />
-        </Route>
-    </Route>
-);
+    {
+        path: '/admin',
+        element:  <Dashboard />
+    },
+    {
+        path: "/admin/appointments",
+        element: <AppointmentList />
+    },
+    {
+        path: "/admin/payments",
+        element: <AdminPaymentList />
+    },
+    // members routes
+    {
+        path: "/admin/members",
+        element: <Members />
+    },
+    // trainers routes
+    {
+        path: "/admin/trainers",
+        element: <TrainersList />
+    },
+    {
+        path: "/admin/trainers/:id",
+        element: <TrainerDetail />
+    },
+    {
+        path: "/admin/trainers/:id/videos",
+        element: <TrainerVideos />
+    },
+    // detox-food routes
+    {
+        path: "/admin/detox-food/view/:item_id",
+        element: <ViewDetoxFood />
+    },
+    {
+        path: "/admin/detox-food/:user_id/lists",
+        element: <ListDetoxFood />
+    },
+    // Tabbed admin add routes (use AdminTabLayout)
+    {
+        path: "/admin/trainers/videos/upload",
+        element: <VideoUpload />
+    },
+    {
+        path: "/admin/trainers/add",
+        element: <AddNewTrainer />
+    },
+    {
+        path: "/admin/members/add",
+        element: <AddNewMember />
+    },
+    {
+        path: "/admin/detox-food/create",
+        element: <CreateDetoxFood />
+    }
+];

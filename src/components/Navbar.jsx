@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // for mobile menu icons
 
 import { useAuth } from "../context/AuthContext";
@@ -11,7 +11,8 @@ const NavigationBar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  const { isAuthenticated, user } = useAuth();
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,11 @@ const NavigationBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true }); // Redirect to login page and can't back without auth
+  };  
 
   return (
     <nav
@@ -165,6 +171,7 @@ const NavigationBar = () => {
            (<div className="hidden md:flex space-x-2 lg:space-x-3">
             <NavLink
               to="/logout"
+              onClick={handleLogout}
               className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 lg:px-4 lg:py-2 rounded-md font-medium text-sm lg:text-base"
             >
               Logout
@@ -296,7 +303,7 @@ const NavigationBar = () => {
               <div className="flex flex-col items-center space-y-2 pb-4">
                 <NavLink
               to="/register"
-              onClick={closeMenu}
+              onClick={handleLogout}
               className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md font-medium w-4/5 text-center"
             >
               Logout
