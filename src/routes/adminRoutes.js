@@ -26,22 +26,6 @@ import VideoUpload from "../pages/admin/trainers/VideoUpload.jsx";
 import AppointmentList from "../pages/admin/AppointmentList.jsx";
 import AdminPaymentList from "../pages/admin/AdminPaymentList.jsx";
 
-// const withAdminLayout = (Component) =>{
-//     return(
-//         <AdminLayout>
-//             <Component />
-//         </AdminLayout>
-//         );
-// }
-
-// const withAdminTabLayout = (Component) =>{
-//     return(
-//         <AdminTabLayout>
-//             <Component />
-//         </AdminTabLayout>
-//         );
-// }
-
 {/* Admin routes with sidebar layout */ }
 export const adminRoutes = [
 

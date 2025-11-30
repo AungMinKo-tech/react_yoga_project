@@ -19,13 +19,6 @@ import UserProfile from "../pages/UserProfile.jsx";
 /* Public routes with main layout (Navbar and Footer) */
 /* Routes with the main Navbar and Footer */
 
-// const withMainLayout = (Component) =>{ 
-//     return (
-//         <MainLayout>
-//             <Component />
-//         </MainLayout>);
-// }
-
 export const publicRoutes = [
     {
         path: "/",

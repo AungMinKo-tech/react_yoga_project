@@ -9,13 +9,6 @@ import CreateNewPassword from "../pages/AccountCreation/CreateNewPassword.jsx";
 import ForgotPassword from "../pages/AccountCreation/ForgotPassword.jsx";
 import OTPVerificcation from "../pages/AccountCreation/OTPVerificcation.jsx";
 
-// const withAccountLayout = (Component) =>{
-//     return(
-//         <AccountTemplate>
-//             <Component />
-//         </AccountTemplate>
-//     );
-// }
 
 export const authRoutes =[
   {
