@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ref } from 'yup';
 
 const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:8000'
 
@@ -41,9 +42,10 @@ export function getCsrfTokenOnce() {
 let refreshPromise = null;
 export async function refreshOnce() {
   if (refreshPromise) return refreshPromise
-  refreshPromise = api.post('/api/v1/refresh')
+    refreshPromise = api.post('/api/v1/refresh', {}, { skipAuthRefresh: true })
     .then((r) => {
-      setAccessToken(r.data?.accessToken || null)
+      setAccessToken(r.data?.data?.token || null)
+      refreshPromise = null
       return r.data
     })
     .catch((e) => {
@@ -88,7 +90,7 @@ api.interceptors.response.use(
       isRefreshing = true
       try {
         const data = await refreshOnce()
-        const newToken = data?.accessToken
+        const newToken = data?.data?.token 
         notify(newToken)
         isRefreshing = false
         original.headers['Authorization'] = 'Bearer ' + newToken
@@ -105,6 +107,7 @@ api.interceptors.response.use(
 
 export const authService = {
   getCsrfTokenOnce,
+  refreshOnce,
   async login({ email, password }) {
     const resp = await api.post('/api/v1/login', {
       email, password

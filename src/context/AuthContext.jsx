@@ -20,14 +20,12 @@ export function AuthProvider({ children }) {
         // 2) try refresh (may 401 if not logged in)
         try {
           const data = await authService.refreshOnce();
-          console.log("AuthContext refreshOnce data:", data);
           if (!mounted) return;
-
           // restore user and access token
-          if (data?.accessToken) {
-            console.log("\nAuth refresh success:", data);
-            setAccessToken(data.accessToken);
-            setUser(data.user);
+          if (data?.data?.token) {
+            // console.log("\nAuth refresh success:", data);
+            setAccessToken(data.data.token);
+            setUser(data.data.user);
           } else {
             setAccessToken(null);
             setUser(null);
@@ -50,7 +48,6 @@ export function AuthProvider({ children }) {
     try {
       const response = await authService.login({ email, password });
       setAccessToken(response.data.token);
-      console.log("\nAuth Context login response:", response);
       setUser(response.data.user);
       return response;
     } catch (error) {

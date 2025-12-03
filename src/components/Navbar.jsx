@@ -14,6 +14,7 @@ const NavigationBar = () => {
   const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth();
 
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) setIsScrolled(true);
