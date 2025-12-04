@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   // Keep access token in memory only
   const [accessToken, setAccessToken] = useState(null);
+  const [role, setRole] = useState(null);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,17 +24,20 @@ export function AuthProvider({ children }) {
           if (!mounted) return;
           // restore user and access token
           if (data?.data?.token) {
-            // console.log("\nAuth refresh success:", data);
             setAccessToken(data.data.token);
             setUser(data.data.user);
+            const userDetail = await authService.getUser(data.data.user.id);
+            setRole(userDetail.data.roleId);
           } else {
             setAccessToken(null);
             setUser(null);
+            setRole(null)
           }
         } catch (e) {
           // Refresh failed → user is logged out automatically
           setAccessToken(null);
           setUser(null);
+          setRole(null)
         }
       } catch (err) {
         console.error("Auth init error", err);
@@ -49,6 +53,9 @@ export function AuthProvider({ children }) {
       const response = await authService.login({ email, password });
       setAccessToken(response.data.token);
       setUser(response.data.user);
+      const userDetail = await authService.getUser(response.data.user.id);
+      setRole(userDetail.data.roleId);
+      console.log("Fetched user details after login: roleId", userDetail.data.roleId);
       return response;
     } catch (error) {
       setAccessToken("");
@@ -63,6 +70,7 @@ export function AuthProvider({ children }) {
     } finally {
       setAccessToken(null);
       setUser(null);
+      setRole(null);
     }
   }
 
@@ -74,8 +82,11 @@ export function AuthProvider({ children }) {
       confirmPassword,
     });
     if (data?.accessToken) {
+      const userDetail = await authService.getUser(data.user.id);
+      console.log("Fetched user details after register: roleId", userDetail.data.roleId);
       setAccessToken(data.accessToken);
       setUser(data.user || null);
+      setRole(userDetail.data.roleId);
     }
     return data;
   }
@@ -83,6 +94,7 @@ export function AuthProvider({ children }) {
   // Expose a small well-defined API (Interface Segregation)
   const value = {
     user,
+    role,
     isAuthenticated: !!user,
     isLoading,
     login,

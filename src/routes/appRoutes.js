@@ -13,7 +13,7 @@ import { adminRoutes } from "./adminRoutes.js";
 import { useAuth } from "../context/AuthContext.jsx";
 
 export const AppRoutes = () => {
-    const { isLoading, isAuthenticated, user } = useAuth();
+    const { isLoading, isAuthenticated, user, role } = useAuth();
 
     if(isLoading){
         return <div>Loading...</div>;
@@ -35,7 +35,7 @@ export const AppRoutes = () => {
                 {renderNestedRoutes(publicRoutes)}
             </Route>
             <Route element={
-                isAuthenticated && user?.role === "admin"
+                isAuthenticated && role === 1
                 ? <AdminLayout />
                 : <Navigate to="/login" replace />
             }>

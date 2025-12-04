@@ -12,7 +12,7 @@ const NavigationBar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   const navigate = useNavigate();
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, role } = useAuth();
 
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const NavigationBar = () => {
               Blog
             </NavLink>
           </li>
-          { isAuthenticated ? 
+          { isAuthenticated && role === 1? 
           (<li>
             <NavLink
               to="/admin"

@@ -140,6 +140,11 @@ export const authService = {
     })
     return resp.data
   },
+  // Get User
+  async getUser(userId){
+    const resp = await api.get(`/api/v1/users/${userId}`);
+    return resp.data;
+  },
 
   api,
 }
